@@ -1,0 +1,379 @@
+ORACLE:
+----------------
+
+Q. Consider the following query:
+SELECT deptno,ename,sal FROM emp 
+ORDER By deptno, sal desc;
+
+What will be the output?
+1).  DEPTNO          ENAME    SAL
+ ----------        ----------      ----------
+         10      CLARK     2450
+        10       KING        5000 
+        20     JONES       2975       
+        20      SCOTT      3000
+        20      MILLER     3000        
+        30     WARD       1250
+        30     TURNER    1500
+        30     ALLEN       1600
+        30     BLAKE       2850
+
+ 
+        
+       
+2).     DEPTNO      ENAME    SAL
+----------        ----------      ----------
+        10       KING        5000
+        10      CLARK      2450
+        20      SCOTT      3000
+        20      MILLER     3000
+        20     JONES       2975
+        30     BLAKE       2850
+        30     ALLEN       1600
+        30     TURNER    1500 
+        30     WARD       1250
+       
+3).     DEPTNO        ENAME    SAL
+----------        ----------      ----------
+        30     BLAKE       2850
+        30     ALLEN       1600
+        30     TURNER    1500 
+        30     WARD       1250
+        20      SCOTT      3000
+        20      MILLER     3000
+        20     JONES       2975
+        10       KING        5000
+        10      CLARK      2450
+       
+        
+       
+4).     DEPTNO       ENAME    SAL
+----------        ----------      ----------
+        10       KING        5000
+        20      SCOTT      3000
+        20      MILLER     3000
+        20     JONES       2975
+        30     BLAKE       2850
+        10      CLARK      2450        
+        30     ALLEN       1600
+        30     TURNER    1500 
+        30     WARD       1250
+       
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+
+
+Q. Given the structure of the BOOK_MASTER Table  
+BOOK_ID VARCHAR2(20)
+BOOK_NAME VARCHAR2(30)
+what will be the output of the following  query 
+ SELECT book_name 
+ FROM Book_master
+WHERE book_name LIKE '%JAVA%' OR '%C%'
+1). All books which has JAVA and C somewhere in the book name
+2). All books with book name starting with JAVA
+3). No output
+4). error in the query
+Solution :
+option [4] is correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. Assuming today is Monday, 10 July 2000, what is returned by this statement: 
+SELECT to_char(NEXT_DAY(sysdate, 'MONDAY'), 'DD-MON-YY') FROM dual;     
+1). 17-Jul-00
+2). 17-JUL-00
+3). Jul-17-00
+4). 17-7-00
+Solution :
+option [2] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. I would like to find out number of employees in all departments, except department 10.  
+Smith writes the query below . Which of the following comments is most appropriate 
+for the query ?
+
+                SELECT  dept_code , count(staff_code)
+                FROM  staff_master 
+                GROUP BY dept_code 
+                HAVING dept_code <> 10
+1). Error : No need to use a having clause , WHERE clause can be used  instead
+               
+2). Query is perfect
+               
+3). Error : Condition is wrong , it should be 
+                          HAVING dept_code = 10
+               
+4). Error : HAVING  must have only an aggregating column
+               
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. What would be the output of the following query? SELECT LPAD('SQL',5,'*') FROM DUAL
+1). *****SQL
+2). **SQL
+3). SQL**
+4). SQL*****
+Solution :
+option [2] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. Given the book_master table 
+            Book_code     Number(5) 
+             Book_Name   varchar2(40) 
+             Pub_year        number(4)
+
+       I would like to print a report classifying   the books  on the following basis 
+                 Publishing year                   Edition  
+                Between   1973 and 1999         "Old "
+                     >= 2000                            "New" 
+
+How   can I achieve this  ?
+1). Using a  CASE statement
+2). Using a WITH statement
+3). Using a DECODE  function
+4). Need to write a PL/SQL statement for  doing this
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. Examine the data in the EMP table
+EMPNO ENAME DEPTNO MGR JOB SAL
+101 Smith 20 120 SA_REP 4000
+102 Martin 10 105 CLERK 2500
+103 Chris 20 120 IT_ADMIN 4200
+104 John 30 108 HR_CLERK 3500
+105 Diana 30 108 IT_ADMIN 5000
+106 Smith 40 110 AD_ASST 3000
+108 Jennifer 30 110 HR_DIR 6500
+110 Bob 40  EX_DIR 8000
+120 Ravi 20 110 SA_DIR 6500
+
+EMPNO is the primary key.  
+MGR is the ID of managers and refers to the EMPNO. 
+The JOB column is a NOT NULL .
+Identify the correct option/options to find department wise average salary for the employees 
+wherein employee's salary is in range of 3000 to 4000.
+1). SELECT  AVG(sal), deptno FROM emp WHERE sal BETWEEN 3000 and 4000
+2). SELECT AVG(sal), deptno FROM emp WHERE sal >= 3000 and sal <= 4000 GROUP BY deptno
+3). SELECT  AVG(sal), deptno FROM emp where sal  BETWEEN 4000 and 3000 GROUP BY deptno
+4). SELECT  AVG(sal), deptno FROM emp WHERE sal  BETWEEN 3000 and 4000 ORDER BY deptno, sal
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. Evaluate this SQL statement
+
+SELECT emp.empno, (15*emp.sal) + (.5* emp.comm) + (.35* emp.sal) AS CALC_VALUE FROM emp;
+
+What will happen if you remove all the parentheses from the calculation?
+1). The value displayed in the CALC_VALUE column will be lower than the one that we are getting with parenthesis.
+2). The value displayed in the CALC_VALUE column will be higher than the one that we 
+     are getting with parenthesis.
+3). There will be no difference in the values displayed in the CALC_VALUE column with 
+     or without parenthesis.
+4). An error will be reported if you remove the parenthesis from the calculation
+Solution :
+option [3] is correct
+Attempted :
+option [4] is attempted
+
+
+
+Q. SELECT dept_code, staff_name, staff_sal
+FROM Staff_Master 
+ORDER BY dept_code, staff_sal
+
+What is true regarding the above query?
+1). Sorts the records based on dept_code
+2). Sorts the records based on staff_sal and then dept_code
+3). Sorts the records based on staff_sal
+4). Sorts the records based on dept_code and then staff_sal
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+
+
+Q. Which of the following group function will consider the null value
+1). COUNT(*)
+2). AVG(column_name)
+3). SUM(column_name)
+4). COUNT(column_name)
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+---------------------------------------------------------------------
+
+Q. Which constraint cannot be applied as a table level constraint ?
+1). not null
+2). primary key
+3). foreign key
+4). unique
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. Which option should be used to create a view only if the base tables exist?
+1). Replace
+2). Force
+3). NoForce
+4). With Check Option
+Solution :
+option [3] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. See the below data.
+
+EMP_ID     DEPT_ID       COMMISSION
+
+1                  10                  500
+2                  20                  1000
+3                  10
+4                  10                  600
+5                  30                  800
+6                  30                  200
+7                  10
+8                  20                  300
+
+The COMMISSION column shows the monthly commission earned by the employee.
+Which of the tasks would require sub queries in order to be performed in a single step?
+1). deleting the records of employees who do not earn commission
+2). increasing the commission of employee 3 by the average commission earned in 
+     department 20
+3). finding the number of employees who do NOT  earn commission and are working 
+     for department 20
+4). inserting into the table a new employee 10 who works for department 20 and earns 
+     a commission that is equal to the commission earned by employee 3
+Solution :
+option [2,4] are correct
+Attempted :
+option [1,2,4] are attempted
+
+
+
+
+Q. Which of the following statements are correct w.r.t database objects
+1). The value of sequencename.currval can be fetched before sequencename.nextval is issued
+2). Synonym for a procedure can be created
+3). It is possible to update all the tables on which the view is based
+4). Oracle automatically creates an index for every primary/unique key constraint declared
+Solution :
+option [2,4] are correct
+Attempted :
+option [2,3,4] are attempted
+
+
+
+Q. Deletion of the database objects can be achieved using following command?
+1). DELETE
+2). TRUNCATE
+3). DROP
+4). All the above
+Solution :
+option [3] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. Which of the following are in-correct w.r.t foreign key column values?
+1). Foreign key column can contain null values
+2). Foreign key column can contain duplicate values
+3). Foreign key column can contain values not present in its corresponding primary key column
+4). Foreign key column must contain values present in its corresponding primary key column
+5). Foreign key and the primary key it is referring to can be present in the same table
+Solution :
+option [3] is correct
+Attempted :
+option [5] is attempted
+
+
+
+Q. Which of the following are  in-correct w.r.t subquery ?
+1). Subquery can contain ORDER BY clause
+2). Subquery can contain GROUP BY clause
+3). Subquery can contain WHERE clause
+4). Subquery can contain AGGREGATE functions
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+
+Q. Examine the structure of table EMP1:
+
+Name                Null?                       Type 
+EMPID              NOT NULL              NUMBER(2) 
+EMPNAME                                     VARCHAR2(10) 
+DEPTNO           NOT NULL               NUMBER(2)
+JOB                                                VARCHAR2(50)    
+
+SQL>alter table emp1 set unused (job, empname);
+
+What is true related to the above example?
+1). DESC EMP1; displays the structure of EMP1 table excluding the columns JOB and EMPNAME.
+2). Data dictionary USER_COL_TABS maintains information of the tables with columns 
+     marked as "unused"
+3). Marking the columns as unused release the space occupied by them back to the database
+4). None of the above. 
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. Which of the following subquery is correct for displaying the employee name along with the hiredate of those employees who joined the organization earliest ?
+1). SELECT ename,hiredate FROM emp WHERE hiredate IN
+(SELECT min(hiredate) FROM emp )
+2). SELECT ename,hiredate FROM emp WHERE hiredate IN
+(SELECT max(hiredate) FROM emp )
+3). SELECT ename FROM emp WHERE hiredate IN
+(SELECT max(hiredate) FROM emp GROUP BY hiredate)
+4). SELECT ename FROM emp WHERE hiredate IN
+(SELECT max(hiredate) FROM emp GROUP BY empno)
+Solution :
+option [1] is correct
+Attempted :
+option [3] is attempted
+
+
+
+Q. Which are the valid multi row subquery operators ?
+1). =
+2). IN
+3). >
+4). >=ANY
+Solution :
+option [2,4] are correct
+Attempted :
+option [1,2,3,4] are attempted
+
+
