@@ -1,0 +1,2552 @@
+ORACLE:
+----------------
+
+Q. Consider the following query:
+SELECT deptno,ename,sal FROM emp 
+ORDER By deptno, sal desc;
+
+What will be the output?
+1).  DEPTNO          ENAME    SAL
+ ----------        ----------      ----------
+         10      CLARK     2450
+        10       KING        5000 
+        20     JONES       2975       
+        20      SCOTT      3000
+        20      MILLER     3000        
+        30     WARD       1250
+        30     TURNER    1500
+        30     ALLEN       1600
+        30     BLAKE       2850
+
+ 
+        
+       
+2).     DEPTNO      ENAME    SAL
+----------        ----------      ----------
+        10       KING        5000
+        10      CLARK      2450
+        20      SCOTT      3000
+        20      MILLER     3000
+        20     JONES       2975
+        30     BLAKE       2850
+        30     ALLEN       1600
+        30     TURNER    1500 
+        30     WARD       1250
+       
+3).     DEPTNO        ENAME    SAL
+----------        ----------      ----------
+        30     BLAKE       2850
+        30     ALLEN       1600
+        30     TURNER    1500 
+        30     WARD       1250
+        20      SCOTT      3000
+        20      MILLER     3000
+        20     JONES       2975
+        10       KING        5000
+        10      CLARK      2450
+       
+        
+       
+4).     DEPTNO       ENAME    SAL
+----------        ----------      ----------
+        10       KING        5000
+        20      SCOTT      3000
+        20      MILLER     3000
+        20     JONES       2975
+        30     BLAKE       2850
+        10      CLARK      2450        
+        30     ALLEN       1600
+        30     TURNER    1500 
+        30     WARD       1250
+       
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+
+
+Q. Given the structure of the BOOK_MASTER Table  
+BOOK_ID VARCHAR2(20)
+BOOK_NAME VARCHAR2(30)
+what will be the output of the following  query 
+ SELECT book_name 
+ FROM Book_master
+WHERE book_name LIKE '%JAVA%' OR '%C%'
+1). All books which has JAVA and C somewhere in the book name
+2). All books with book name starting with JAVA
+3). No output
+4). error in the query
+Solution :
+option [4] is correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. Assuming today is Monday, 10 July 2000, what is returned by this statement: 
+SELECT to_char(NEXT_DAY(sysdate, 'MONDAY'), 'DD-MON-YY') FROM dual;     
+1). 17-Jul-00
+2). 17-JUL-00
+3). Jul-17-00
+4). 17-7-00
+Solution :
+option [2] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. I would like to find out number of employees in all departments, except department 10.  
+Smith writes the query below . Which of the following comments is most appropriate 
+for the query ?
+
+                SELECT  dept_code , count(staff_code)
+                FROM  staff_master 
+                GROUP BY dept_code 
+                HAVING dept_code <> 10
+1). Error : No need to use a having clause , WHERE clause can be used  instead
+               
+2). Query is perfect
+               
+3). Error : Condition is wrong , it should be 
+                          HAVING dept_code = 10
+               
+4). Error : HAVING  must have only an aggregating column
+               
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. What would be the output of the following query? SELECT LPAD('SQL',5,'*') FROM DUAL
+1). *****SQL
+2). **SQL
+3). SQL**
+4). SQL*****
+Solution :
+option [2] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. Given the book_master table 
+            Book_code     Number(5) 
+             Book_Name   varchar2(40) 
+             Pub_year        number(4)
+
+       I would like to print a report classifying   the books  on the following basis 
+                 Publishing year                   Edition  
+                Between   1973 and 1999         "Old "
+                     >= 2000                            "New" 
+
+How   can I achieve this  ?
+1). Using a  CASE statement
+2). Using a WITH statement
+3). Using a DECODE  function
+4). Need to write a PL/SQL statement for  doing this
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. Examine the data in the EMP table
+EMPNO ENAME DEPTNO MGR JOB SAL
+101 Smith 20 120 SA_REP 4000
+102 Martin 10 105 CLERK 2500
+103 Chris 20 120 IT_ADMIN 4200
+104 John 30 108 HR_CLERK 3500
+105 Diana 30 108 IT_ADMIN 5000
+106 Smith 40 110 AD_ASST 3000
+108 Jennifer 30 110 HR_DIR 6500
+110 Bob 40  EX_DIR 8000
+120 Ravi 20 110 SA_DIR 6500
+
+EMPNO is the primary key.  
+MGR is the ID of managers and refers to the EMPNO. 
+The JOB column is a NOT NULL .
+Identify the correct option/options to find department wise average salary for the employees 
+wherein employee's salary is in range of 3000 to 4000.
+1). SELECT  AVG(sal), deptno FROM emp WHERE sal BETWEEN 3000 and 4000
+2). SELECT AVG(sal), deptno FROM emp WHERE sal >= 3000 and sal <= 4000 GROUP BY deptno
+3). SELECT  AVG(sal), deptno FROM emp where sal  BETWEEN 4000 and 3000 GROUP BY deptno
+4). SELECT  AVG(sal), deptno FROM emp WHERE sal  BETWEEN 3000 and 4000 ORDER BY deptno, sal
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. Evaluate this SQL statement
+
+SELECT emp.empno, (15*emp.sal) + (.5* emp.comm) + (.35* emp.sal) AS CALC_VALUE FROM emp;
+
+What will happen if you remove all the parentheses from the calculation?
+1). The value displayed in the CALC_VALUE column will be lower than the one that we are getting with parenthesis.
+2). The value displayed in the CALC_VALUE column will be higher than the one that we 
+     are getting with parenthesis.
+3). There will be no difference in the values displayed in the CALC_VALUE column with 
+     or without parenthesis.
+4). An error will be reported if you remove the parenthesis from the calculation
+Solution :
+option [3] is correct
+Attempted :
+option [4] is attempted
+
+
+
+Q. SELECT dept_code, staff_name, staff_sal
+FROM Staff_Master 
+ORDER BY dept_code, staff_sal
+
+What is true regarding the above query?
+1). Sorts the records based on dept_code
+2). Sorts the records based on staff_sal and then dept_code
+3). Sorts the records based on staff_sal
+4). Sorts the records based on dept_code and then staff_sal
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+
+
+Q. Which of the following group function will consider the null value
+1). COUNT(*)
+2). AVG(column_name)
+3). SUM(column_name)
+4). COUNT(column_name)
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q. Which constraint cannot be applied as a table level constraint ?
+1). not null
+2). primary key
+3). foreign key
+4). unique
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. Which option should be used to create a view only if the base tables exist?
+1). Replace
+2). Force
+3). NoForce
+4). With Check Option
+Solution :
+option [3] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. See the below data.
+
+EMP_ID     DEPT_ID       COMMISSION
+
+1                  10                  500
+2                  20                  1000
+3                  10
+4                  10                  600
+5                  30                  800
+6                  30                  200
+7                  10
+8                  20                  300
+
+The COMMISSION column shows the monthly commission earned by the employee.
+Which of the tasks would require sub queries in order to be performed in a single step?
+1). deleting the records of employees who do not earn commission
+2). increasing the commission of employee 3 by the average commission earned in 
+     department 20
+3). finding the number of employees who do NOT  earn commission and are working 
+     for department 20
+4). inserting into the table a new employee 10 who works for department 20 and earns 
+     a commission that is equal to the commission earned by employee 3
+Solution :
+option [2,4] are correct
+Attempted :
+option [1,2,4] are attempted
+
+
+
+
+Q. Which of the following statements are correct w.r.t database objects
+1). The value of sequencename.currval can be fetched before sequencename.nextval is issued
+2). Synonym for a procedure can be created
+3). It is possible to update all the tables on which the view is based
+4). Oracle automatically creates an index for every primary/unique key constraint declared
+Solution :
+option [2,4] are correct
+Attempted :
+option [2,3,4] are attempted
+
+
+
+Q. Deletion of the database objects can be achieved using following command?
+1). DELETE
+2). TRUNCATE
+3). DROP
+4). All the above
+Solution :
+option [3] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. Which of the following are in-correct w.r.t foreign key column values?
+1). Foreign key column can contain null values
+2). Foreign key column can contain duplicate values
+3). Foreign key column can contain values not present in its corresponding primary key column
+4). Foreign key column must contain values present in its corresponding primary key column
+5). Foreign key and the primary key it is referring to can be present in the same table
+Solution :
+option [3] is correct
+Attempted :
+option [5] is attempted
+
+
+
+Q. Which of the following are  in-correct w.r.t subquery ?
+1). Subquery can contain ORDER BY clause
+2). Subquery can contain GROUP BY clause
+3). Subquery can contain WHERE clause
+4). Subquery can contain AGGREGATE functions
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+
+Q. Examine the structure of table EMP1:
+
+Name                Null?                       Type 
+EMPID              NOT NULL              NUMBER(2) 
+EMPNAME                                     VARCHAR2(10) 
+DEPTNO           NOT NULL               NUMBER(2)
+JOB                                                VARCHAR2(50)    
+
+SQL>alter table emp1 set unused (job, empname);
+
+What is true related to the above example?
+1). DESC EMP1; displays the structure of EMP1 table excluding the columns JOB and EMPNAME.
+2). Data dictionary USER_COL_TABS maintains information of the tables with columns 
+     marked as "unused"
+3). Marking the columns as unused release the space occupied by them back to the database
+4). None of the above. 
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. Which of the following subquery is correct for displaying the employee name along with the hiredate of those employees who joined the organization earliest ?
+1). SELECT ename,hiredate FROM emp WHERE hiredate IN
+(SELECT min(hiredate) FROM emp )
+2). SELECT ename,hiredate FROM emp WHERE hiredate IN
+(SELECT max(hiredate) FROM emp )
+3). SELECT ename FROM emp WHERE hiredate IN
+(SELECT max(hiredate) FROM emp GROUP BY hiredate)
+4). SELECT ename FROM emp WHERE hiredate IN
+(SELECT max(hiredate) FROM emp GROUP BY empno)
+Solution :
+option [1] is correct
+Attempted :
+option [3] is attempted
+
+
+
+Q. Which are the valid multi row subquery operators ?
+1). =
+2). IN
+3). >
+4). >=ANY
+Solution :
+option [2,4] are correct
+Attempted :
+option [1,2,3,4] are attempted
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q. 
+
+
+DECLARE 
+CURSOR mycur is SELECT empno,ename FROM EMP WHERE DEPTNO=&dno;
+var_empno emp.empno%type;
+var_ename emp.ename%type;
+BEGIN
+OPEN mycur;
+FETCH mycur INTO var_empno,var_ename;
+DBMS_OUTPUT.PUT_LINE(var_empno || var_ename);
+CLOSE mycur;
+END;
+
+
+What will be the output if deptno is entered as 99 which is not present in the table?
+1). NO_DATA_FOUND exception occurs
+2). INVALID_CURSOR exception occurs
+3). No exception occurs
+4). Compilation error occurs
+Solution :
+option [3] is correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. Identify the correct option statements related to DELETE command.
+1). In DELETE command, if WHERE is omitted, all rows from the table are removed, 
+     and else all rows which satisfy the condition are removed.
+2). FROM clause is mandatory in DELETE statement
+3). WHERE clause is must in DELETE statement
+4). None of the above
+Solution :
+option [1] is correct
+Attempted :
+option [3] is attempted
+
+
+
+Q. What is the output of the below snippet, assuming that emp table exists with columns empno, ename and sal?           
+
+DECLARE
+vemp emp%rowtype;
+BEGIN
+vemp.empno := 111;
+vemp.ename := 'tom';
+vemp.sal := 3000;
+UPDATE emp SET empno = vemp.empno,sal=40000 WHERE empno = 111;
+END;
+/
+1). PL/SQL procedure successfully completed. 
+2). Error: Use row Keyword in update statement to get the updations done
+3). Error: As it is rowtype, all fields should be set in update statement.
+4). Error: Variable declared as rowtype can not be updated using the given UPDATE statement.
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+
+
+
+Q. You added a PHONE-NUMBER column of NUMBER data type to an existing EMPLOYEES table. 
+The EMPLOYEES table already contains records of 100 employees. Now, you want to enter the 
+phone numbers of each of the 100 employees into the table. Some of the employees may not have 
+a phone number available.
+
+Which data manipulation operation do you perform?
+1). ALTER
+2). INSERT 
+3). UPDATE
+4). You cannot enter the phone number for the existing employee records
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+
+Q. Identify the correct statements regarding INSERT command:
+1). In INSERT command, values for the columns should match data types of the respective 
+     columns in a table.
+2). In INSERT command, all columns except those declared as"NOT NULL" should be 
+     supplied with values.
+3). INSERT command is available in data control language.
+4). None of the above
+Solution :
+option [1] is correct
+Attempted :
+option [3] is attempted
+
+
+
+Q. Evaluate this PL/SQL BLOCK
+DECLARE
+    V_count NUMBER (99);
+BEGIN
+     DELETE FROM Staff_Master Where Staff_code IN (100,101,102);
+       ........
+END;
+
+What should be done to display an error message when no records are deleted
+1). DELETE FROM Staff_Master Where Staff_code IN (100,101,102);
+          IF SQL%NOTFOUND() THEN 
+                Dbms_output.put_line('No records deleted ');
+               
+2). DELETE FROM Staff_Master Where Staff_code IN (100,101,102);
+          WHEN  NO_DATA_FOUND THEN
+                Dbms_output.put_line('No records deleted ');
+               
+3). DELETE FROM Staff_Master Where Staff_code IN (100,101,102);
+          IF NO_DATA_FOUND THEN
+                Dbms_output.put_line('No records deleted ');
+               
+4). DELETE FROM Staff_Master Where Staff_code IN (100,101,102);
+         IF SQL%NOTFOUND THEN 
+               Dbms_output.put_line('No records deleted ');
+               
+Solution :
+option [4] is correct
+Attempted :
+option [1] is attempted
+
+
+
+
+Q. Identify the output
+.
+.
+.
+IF NOT caller_cur%ISOPEN
+THEN
+   OPEN caller_cur;
+END IF;
+OPEN caller_cur;
+FETCH caller_cur INTO caller_rec;
+.
+.
+.
+1). PL/SQL Block successfully executed
+2). PL/SQL error: cursor already open
+3). If fetch will come before OPEN statement, there is no error
+4). PL/SQL error: attribute ISOPEN can not be used for caller_cur
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. Identify the output of the given snippet. (Refer the line numbers which are given in the snippet.)
+
+1. DECLARE
+2. CURSOR cur1 IS SELECT * FROM emp;
+3. emprec emp%rowtype;
+4. BEGIN
+5. OPEN cur1;
+6. FETCH cur1 INTO emprec;
+7. WHILE(cur1%notfound)
+8. LOOP
+9. dbms_output.put_line(emprec.empno||' '||emprec.ename);
+10. FETCH cur1 INOT emprec;
+11. END LOOP;
+12. CLOSE cur1;
+13. END;
+1). Error: Multiple fetch in a single operation
+2). Error: Line 2
+3). All emp table data for two columns i.e. empno and ename is displayed as well as 
+     message ‘PL/SQL   procedure successfully completed.’ is displayed 
+4). Message ‘PL/SQL procedure successfully completed.’ is displayed only without any 
+     table rows as an output.
+Solution :
+option [4] is correct
+Attempted :
+option [1] is attempted
+
+
+
+Q. Evaluate this PL/SQL block. Assume that there is no employee in EMP table that 
+belongs to deptno 100:
+
+set serveroutput on
+DECLARE
+v_result  number(2);
+BEGIN
+DELETE
+FROM emp
+WHERE deptno IN (100);
+v_result := SQL%ROWCOUNT;
+COMMIT;
+dbms_output.put_line(v_result);
+END;
+
+What will be the value of v_result if no rows are deleted?
+1). 0
+2). 1
+3). TRUE
+4). Null
+Solution :
+option [1] is correct
+Attempted :
+option [3] is attempted
+
+
+
+Q. The given PL/SQL block is for deleting the salary of all staffs of designation code 12.
+Predict what is not correct          
+
+       DECLARE
+       cursor Staff_cursor   is
+       Select staff_code,desg_code,salary from staff_master where desg_code=12;
+               Emp_record staff_cursor%ROWTYPE;
+        BEGIN
+          Open staff_cursor ;
+            Loop 
+                   Fetch  staff_cursor into emp_record;
+                  Exit when staff_cursor%NOTFOUND;            
+                  If(emp_record.desg_code=12) then     
+                       Delete staff_master  where     staff_code=emp_record.staff_code 
+                  Endif;
+                 End Loop;
+            Exception
+                -- do something 
+         END:
+1). No need to use cursor variables , delete can be done in a single sql statement
+2). The above piece of code works perfectly without any issues
+3). Cursor Rowtype is an invalid data type
+4). Exception block is not needed
+Solution :
+option [1] is correct
+Attempted :
+option [3] is attempted
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q. See the below snippet
+
+CREATE OR REPLACE PROCEDURE Many_Params (
+mesg1 IN     VARCHAR2,
+mesg2 OUT    VARCHAR2,
+mesg3 IN OUT VARCHAR2) IS
+BEGIN
+  mesg2 := mesg1 || 'Parameter As The OUT';
+  mesg3 := mesg3 || 'Returned';
+END Many_Params;
+/
+DECLARE
+ iparm  VARCHAR2(50) := 'This is the IN ';
+ oparm  VARCHAR2(50);
+ ioparm VARCHAR2(50) := 'And This is the IN OUT '; 
+BEGIN
+  many_params(iparm, oparm, ioparm);
+  dbms_output.put_line(oparm || ' .’|| ioparm);
+END;
+/
+What is the output of the program?
+1). This is the IN Parameter As The OUT. And This is the IN OUT 
+2). Parameter As The OUT. And This is the IN OUT
+3). This is the IN Parameter As The OUT. And This is the IN OUT Returned
+4). This is the IN Parameter As The OUT Returned
+Solution :
+option [3] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. Observe the following code and predict the ouput 
+
+CREATE OR REPLACE PROCEDURE PROC1(num1 NUMBER, num2 NUMBER) AS
+result NUMBER;
+BEGIN
+result:=num1+num2;
+DBMS_OUTPUT.PUT_LINE(result);
+RETURN result;
+END;
+/
+1). Compilation error as RETURN statement cannot contain an expression
+2). Compilation succeeds and the value in result variable will be displayed
+3). Compilation will succeed if only RETURN is written instead of RETURN result;
+4). None of the above
+Solution :
+option [1,3] are correct
+Attempted :
+option [1,2,3] are attempted
+
+
+Q. See the below snippet.
+CREATE PROCEDURE Create_Stud (rollno IN NUMBER, sname IN varchar2 DEFAULT 'aaa’) IS
+BEGIN
+INSERT INTO stus (rollnumber, studname)
+VALUES (rollno, sname);
+END;
+ 
+What will be the output if we call procedure as Create_Stud (10,’AMIT’);
+1). Procedure call will fail results in error 
+2). rollno will be 10 and sname will be ‘aaa’
+3). Error: Default Keyword is missing in procedure call
+4). rollno will be 10 and sname will be ‘AMIT’ 
+Solution :
+option [4] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. PL/SQL raises an exception, in which TWO of the following cases
+1). When a SELECT statement returns no rows 
+2). When a SELECT statement returns more than one row 
+3). When the datatypes of SELECT clause and INTO clause do not match 
+4). When INTO statement is missing in the SELECT statement 
+Solution :
+option [1,2] are correct
+Attempted :
+option [1,2,4] are attempted
+
+
+Q. Consider the following code and determine the correct code for calling this function 
+
+CREATE OR REPLACE FUNCTION addNumbers(num1 in out number, num2 number) RETURN
+number as
+BEGIN
+num1:=num1+num2;
+RETURN num1;
+END;
+1). BEGIN
+addNumbers(10,20);
+END;
+2). DECLARE 
+ans number;
+BEGIN
+ans:=addNumbers(10,20);
+END;
+3). declare
+ans number;
+num1 number:=10;
+begin
+ans:=addNumbers(num1,20);
+end;
+/
+4). declare
+ans number;
+num1 number:=10;
+num2 number:=20;
+begin
+ans:=addNumbers(num1,num2);
+e
+Solution :
+option [3,4] are correct
+Attempted :
+option [1,2,3] are attempted
+
+
+
+Q. If SELECT INTO statement does not return any row then the following exception 
+would be raised
+1). TOO_MANY_ROWS 
+2). NO_DATA_FOUND
+3). VALUE_ERROR
+4). INVALID_CURSOR
+Solution :
+option [2] is correct
+Attempted :
+option [3] is attempted
+
+
+
+Q. Observe the following code and predict the ouput 
+
+CREATE OR REPLACE PROCEDURE PROC1(num1 NUMBER, num2 NUMBER) AS
+BEGIN
+num1:=num1+num2;
+DBMS_OUTPUT.PUT_LINE(num1);
+RETURN;
+END;
+/
+1). Compilation error : num1 cannot be used as assignment target
+2). Compilation succeeds if num1 is declared as OUT parameter
+3). Compilation succeeds if num1 is declared as IN parameter
+4). No compilation error
+Solution :
+option [1,2] are correct
+Attempted :
+option [1,2] are attempted
+
+
+Q. If there is a procedure called addNumbers already existing, what will be the output of the following code?
+
+CREATE OR REPLACE FUNCTION addNumbers(num1 in out number, num2 number) RETURN
+number as
+BEGIN
+num1:=num1+num2;
+RETURN num1;
+END;
+1). The procedure will get overwritten by this function
+2). There will be a procedure as well as a function with the same name, addNumbers
+3). Compilation error.  name is already used by an existing object
+4). None of the above
+Solution :
+option [3] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. If there is a procedure called addNumbers already existing, what will be the output of the following code?
+
+CREATE OR REPLACE FUNCTION addNumbers(num1 in out number, num2 number) RETURN
+number as
+BEGIN
+num1:=num1+num2;
+RETURN num1;
+END;
+1). The procedure will get overwritten by this function
+2). There will be a procedure as well as a function with the same name, addNumbers
+3). Compilation error.  name is already used by an existing object
+4). None of the above
+Solution :
+option [3] is correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. Assume that table ERRORS is having following structure:
+
+Name             Null?          Type
+-----------------------------------
+Errorno                            Number
+Errormess                        Char(100)
+
+Identify the erroneous line in the given code snippet. (Refer the line numbers which are given in the snippet.)
+
+ 1DECLARE
+ 2 Err_Num NUMBER ;
+ 3 Err_Msg CHAR(100);
+ 4 BEGIN
+ -------
+ ------
+ 5 EXCEPTION
+----------
+-------
+ 6 WHEN OTHERS THEN
+ 7 INSERT INTO errors VALUES (SQLCODE, SQLERRM);
+ 8 END;
+/
+1). line 2
+2). line 6
+3). line 7 
+4). no error
+Solution :
+option [3] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. Which of the statements are true about the following pl/sql block 
+   DECLARE 
+    V_STAFF_NO  NUMBER  := 600080'; 
+    V_EMP_NAME VARCHAR2(10); 
+
+ BEGIN 
+      SELECT staff_name  FROM STAFF_MASTER  WHERE STAFF_CODE = V_STAFF_NO ;
+      DBMS_OUTPUT.PUT_LINE('Employee name is ' || V_EMP_NAME); 
+
+EXCEPTION 
+
+WHEN NO_DATA_FOUND THEN 
+    DBMS_OUTPUT.PUT_LINE('No such employee: ' || Emp_number); 
+WHEN Others
+    DBMS_OUTPUT.PUT_LINE('some exception'); 
+
+END;
+1). Will show compilation error because into clause is missing
+2). Will print some exception message
+3). Will run successfully
+4). Will show a compilation error because V_EMP_NAME is not initialized
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q. Given:
+   float result;
+   result=5/2;
+   System.out.println(result);
+
+What will be the output?
+1). 2
+2). 2.0
+3). 2.5
+4). error
+Solution :
+option [2] is correct
+Attempted :
+option [3] is attempted
+
+
+
+Q. Given the following code fragment:
+
+ XXXX  choice ; // variable choice is declared and initialized here
+ switch( choice ) {
+   case 100 : System.out.println("One hundred");break ;
+   case 20 : System.out.println("Twenty");break ;
+   case 30 : System.out.println("Thirty");break ;
+ }
+
+Choose the declarations of choice which will not cause a compiler error.       
+1). byte choice = 100 ;
+2). short choice = 100 ;
+3). int choice = 300 ;
+4). All of the above
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. public class test {         
+                            
+    static void methodA(short s) {
+     System.out.println("methodA(short) called");
+    }
+
+    static void methodA(int i) {
+     System.out.println("methodA(int) called");
+    }
+                         
+                       
+    static void methodB(float f) {
+    System.out.println("methodB(float) called");
+    }
+
+    static void methodB(double d) {
+    System.out.println("methodB(double) called");
+    }
+                         
+    public static void main(String args[]) {
+                           
+    methodA(5);                                                 
+    methodB(5.2);
+
+    }
+} 
+1). methodA(short) called
+2). methodA(int) called
+3). Exception
+4). Compilation Error
+Solution :
+option [2] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. What is true about the following code?        
+
+1. enum EnumDemo { A }
+2. class Test {
+3. enum EnumD { B }
+4. void my_method() {
+5. enum EnumC { D }
+6. } } 
+1). The code compiles without any error
+2). The code compiles if we remove line number 1
+3). The code compiles if we remove line number 5
+4). None of the above is correct 
+Solution :
+option [3] is correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. When access modifier is omitted from the definition of the member of a class. The member has?
+1). default access
+2). public access
+3). private access 
+4). protected access
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+
+Q. Given:
+1. public class Demo {
+2. public static void main (String[] args) {
+3. byte var1 = 127;
+4. byte var2 = 126;
+5. byte result = var1 + var2;
+6. }
+7. }
+
+Which statement is true?
+1). Compilation succeeds and d takes the value 253.
+2). Line 5 contains an error that prevents compilation.
+3). Line 5 throws an exception indicating "Out of range"
+4). Line 3 and 4 contain errors that prevent compilation.
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. Memory deallocation in java is done by? 
+1). Programmer
+2). Operating system
+3). Garbage collector
+4). None of the above
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+
+Q. Which of the following are features of Java Programming Language?
+1). Robust
+2). Multithreaded
+3). Interpreted
+4). All of the above
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+
+
+Q. What all gets printed when the following code is compiled and run? 
+Select the correct answers:
+
+public class Test {
+   public static void main(String args[]) 
+{
+      for(int i = 0; i < 2; i++) 
+{
+         for(int j = 2; j>= 0; j--) 
+{
+            if(i == j) break;
+           System.out.println("i=" + i + " j="+j);
+         }
+      }
+   }
+} 
+
+1. i=0 j=0 
+2. i=0 j=1 
+3. i=0 j=2 
+4. i=1 j=0 
+5. i=1 j=1 
+6. i=1 j=2
+1). 1,3,5
+2). 2,4,6
+3). 1,2,5
+4). 3,2,6
+Solution :
+option [4] is correct
+Attempted :
+option [3] is attempted
+
+
+
+Q. Which of the following statements are true?
+1). No arg constructor is allways supplied by the Compiler
+2). Constructors cannot be overloaded
+3). Constructors cannot have return type.
+4). Constructors can be static
+Solution :
+option [3] is correct
+Attempted :
+option [4] is attempted
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q. Which of the following are Object class methods?
+1). toString()
+2). equals()
+3). hashCode()
+4). All of the above
+Solution :
+option [4] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. Which of the given LocalDate class method is used to obtain current date?
+1). now()
+2). parse()
+3). format()
+4). newInstance()
+Solution :
+option [1] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. Which of the given syntax is correct to display  date-time with the time zone in the ISO-8601 calendar system, such as 2007-12-03T10:15:30+01:00 Europe/Paris. 
+Assume the zone is Asia/kolkata.
+1). ZonedDateTime objt = ZonedDateTime.of(LocalDateTime.now(), ZoneId.of("Asia/Kolkata"));
+2). LocalDate date = LocalDate.now(ZoneId.of("Asia/Kolkata"));
+3). ZonedDateTime time = new ZonedDateTime("Asia/Kolkata");
+4). ZonedDateTime time = new ZonedDateTime.of("Asia/Kolkata");
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. The Scanner class is found in  ______ package.
+1). java.lang
+2). java.util
+3). java.io
+4). None of the above
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. class Shape
+{
+final public double calArea(){}
+}
+public class Circle extends Shape
+{
+int radius;
+public Circle(int radius){
+this.radius = radius;
+}
+public double calArea(){
+return 3.142*radius*radius;
+}
+public static void main(String []args){
+Shape obj = new Circle(5);
+System.out.println(obj.calArea());
+}
+}What will be the output of above code?
+1). It will display area of circle with radius 5
+2). no output
+3). compilation error
+4). runtime Exception
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. class Employee
+{
+String name;
+int id;
+public Employee(String name,int id)
+{
+this.name = name;
+this.id=id;
+}
+}
+public class Manager extends Employee
+{
+public static void main(String []args)
+{
+Manager mgr = new Manager();
+}
+}
+What will happen after execution of above code?
+1). Manager class object will be successfully created 
+2). compile time error as there is no default constructor in class Employee
+3). Manager object will be successfully created after implementing default constructor in Manager class
+4). Default constructor need to be implemented in both classes for successful creation of Manager class object
+Solution :
+option [2] is correct
+Attempted :
+option [1] is attempted
+
+Q. class Demo
+{}
+public class SubDemo extends Demo
+{
+public static void main(String []args){
+Demo obj = new SubDemo();
+System.out.println(obj instanceof Demo);}
+}What will be the output of above code?
+1). FALSE
+2). TRUE
+3). Demo
+4). SubDemo
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. What will be the output of the following code snippet?         '
+
+String str1 = new String( "hello" );
+String str2 = "hello";
+         if  (str1==str2) 
+           System.out.println( "Equals");
+        else
+           System.out.println( "Not Equal");
+1). Equal
+2). Not Equal
+3). Compilation error
+4). None of the above
+Solution :
+option [2] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. What will happen when you attempt to compile and run the following class?      
+
+class Base{
+Base(int var)
+{
+    System.out.println("Base");
+}
+}
+class Test extends Base{
+public static void main(String argv[]){
+        Test obj = new Test();
+}
+}
+1).  Compiles without any problem
+2).  Compiles and produces output "Base"
+3). Generates Compile time error
+4). None of the above
+Solution :
+option [3] is correct
+Attempted :
+No options are Attempted
+
+
+Q. Integer var1 = new Integer(2); 
+Integer var2 = new Integer(2); 
+
+What happens when you do if (var1==var2)?  
+1). 'TRUE
+2). 'FALSE
+3). compilation error
+4). runtime Exception
+Solution :
+option [2] is correct
+Attempted :
+No options are Attempted
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Q. public class Demos {
+      
+      public static void main(String[] args) {
+       String input = "Hello Welcome";
+       String pattern = "\\sHello\\sWelcome\\s";
+       boolean flag = Pattern.matches(pattern, input);
+       System.out.println(flag);
+      }
+}
+1). TRUE
+2). FALSE
+3). compilation error
+4). exception
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. public class RegexMatches
+{
+    private static String regex = "dog";
+    private static String input = "The dog says meow. " +"All dogs say meow.";
+    private static String replace = "cat";
+
+    public static void main(String[] args) {
+        //line no.1
+       
+       Matcher m = p.matcher(input); 
+       INPUT = m.replaceAll(replace);
+       System.out.println(input);
+   }
+}Which code need to be inserted at line no.1 to execute it successfully?
+1). Pattern p = Pattern.compile(regex);
+2). Pattern p = Pattern.test(regex);
+3). Pattern p = Pattern.matches(regex);
+4). Pattern p = new Pattern(regex);
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+
+Q. class Shape
+{
+Shape(){}
+}
+public class Triangle extends Shape
+{
+int base,height;
+public Triangle(int base,int height){
+this.base = base;
+this.height=height;
+}
+public double calArea(){
+return o.5*base*height;
+}
+public static void main(String []args){
+Shape ref = new Triangle(3,4);
+System.out.println(ref.calArea());
+}Which change need to be done in the Shape class for successful execution of program?
+1). Declare Shape as abstract class
+2). Remove default constructor from Shape class
+3). declare abstract double calArea() in Shape class
+4). declare abstract double calArea() in Shape class and declare Shape class as abstract class
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. Which of the given syntax is correct for interface implementation in Java 8?
+1). interface Demo{
+}
+2). interface Demo{
+default int getNumber(){return 0;}
+}
+3). interface Demo{
+static int getNumber(){return 0;}
+}
+4). interface Demo
+{
+int getNumber(){return 0;}
+}
+Solution :
+option [1,2,3] are correct
+Attempted :
+option [1,3] are attempted
+
+
+
+Q. What is the Regular Expression Matching Zero or More Specific Characters?
+1). \
+2). $
+3). *
+4). ^
+Solution :
+option [3] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. What is the Regular Expression Matching Zero or More Specific Characters?
+1). \
+2). $
+3). *
+4). ^
+Solution :
+option [3] is correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. Consider the following code: 
+
+interface MyInterface {
+
+// Method declaration code
+
+ } 
+Which of the following code snippet shows the wrong way to declare Method in interface ?
+1). public abstract boolean isValid();
+2). public boolean isValid();
+3). protected boolean isValid();
+4).  boolean isValid();
+Solution :
+option [3] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. Consider the following code: 
+
+interface Greek { } 
+
+class Alpha implements Greek { } 
+
+class Beta extends Alpha {} 
+
+class Delta extends Beta 
+ { 
+    public static void main( String[] args ) 
+     { 
+       Beta obj = new Beta(); // insert code here 
+     }
+ }
+
+Which of the following code snippet when inserted individual at the commented line 
+(// insert code here), will cause a  java.lang.ClassCastException? 
+1). Greek objGrk = (Beta)(Alpha)obj;
+2). Alpha objAlpha = obj;
+3). Greek objGrk = (Alpha)obj;
+4).  Beta objBeta = (Beta)(Alpha)obj;
+5). Greek objGrk = (Delta)obj;
+Solution :
+option [5] is correct
+Attempted :
+option [5] is attempted
+
+
+
+Q. Which of the following is FALSE about abstract classes in Java?
+1). If we derive an abstract class and do not implement all the abstract methods, then the derived class should also be marked as abstract using 'abstract' keyword
+2). Abstract classes can have constructors
+3). A class can be made abstract without any abstract method
+4). A class can inherit from multiple abstract classes
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. Which of the following statements are true related to interface ?
+1). Interface doesn't alllow to create object .
+2). Multiple inheritence can be possible in interface.
+3). Class can implement only one interface .
+4). Interface can't allow to declare a member variable.
+Solution :
+option [1,2] are correct
+Attempted :
+option [1,2,4] are attempted
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q. public class Test{
+        public static void main(String[] args){
+                int[] a = new int[0];
+                System.out.print(a.length);
+        }
+}
+1). 1
+2). 0
+3). Compilation error, arrays cannot be initialized to zero size.
+4). Compilation error, it is a.length() not a.length
+Solution :
+option [2] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. What is the output of the following program?
+
+class Test {
+public static void main(String[] args) {
+try {
+doMath(5);
+System.out.print("hi");
+}
+finally { System.out.println(" from finally"); }
+}
+public static void doMath(int den) {
+int num = 7 / den;
+}
+}          
+1). hi from finally
+2). hi
+from finally
+3). prints hi from finally 2 times
+4). None of the above
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. Which of the following statements are true related to exception handling in java ?
+1). UserDefined exception can be created by extending from RunTimeException class
+2). Throwable is the base class of Error and Exception class .
+3). Checked Exception need to be handled either by try and catch block or by using throws keyword in a code before compilation.
+4). All of the above
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. __________is raised if I do not provide the String array as the argument to the main method.
+1). NullPointerException
+2). IllegalAccessException
+3). NoSuchMethodError
+4). None of the above 
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. Given:
+try { int number = Integer.parseInt("two"); }
+
+Which could be used to create an appropriate catch block?        
+1). ClassCastException
+2). IllegalStateException
+3). NumberFormatException
+4). None of the above is true
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+Q. class ArrayDemo
+{
+public static void main(String []args){
+String str = "Hello World";
+int []arr = {1,2,3,4,5};
+display(arr,str);
+}
+public static void display(int …arr,String str)
+{
+for(int num:arr){System.out.println(num);}
+System.out.println(str);
+}
+}
+1). 12345Hello World
+2). Hello World
+3). NumberFormatException
+4). Compilation Error
+Solution :
+option [4] is correct
+Attempted :
+option [1] is attempted
+
+
+
+Q. In Java arrays are ___________.
+1). objects
+2). object references
+3). primitive data type
+4). All of the above
+Solution :
+option [1] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. What will be the output of following program ?
+public class Foo 
+{  
+    public static void main(String[] args) 
+    {
+        try 
+        { 
+            return; 
+        } 
+        finally 
+        {
+            System.out.println( "Finally" ); 
+        } 
+    } 
+}
+1). Finally
+2). Compilatation fails .
+3). No output.
+4). runtime Exception
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. Which of the given statement will ensure that each resource is closed at the end of statement?
+1). try with resource
+2). call to close() function on the resource
+3). try with resource and finally
+4). try with catch
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. public class Demos {
+        public static void main(String[] args) {
+       int arr[5]={1,2,3,4,5};
+        for(int ele:arr){
+        System.out.print(str);}
+}
+What will be the output of above code?
+1). 12345
+2). no output
+3). ArrayIndexOutOfBounds Exception
+4). Compilation Error
+Solution :
+option [4] is correct
+Attempted :
+option [1] is attempted
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q. Which of the following methods are declared in List interface ?
+1). get(int index)
+2). iterator()
+3). listIterator()
+4). remove()
+Solution :
+option [1,2] are correct
+Attempted :
+option [1,3,4] are attempted
+
+
+Q. What is the output of the following?         
+
+import java.util.*;
+public class Test {
+public static void main(String[] args) {
+ Set set = new TreeSet();
+ set.add("anu");
+ set.add("anil");
+ set.add("sunil");
+ for(Object str:set){
+ System.out.print(str + " ");}
+}
+}
+1). anil anu sunil
+2). anu anil sunil
+3). Compilation error
+4). Exception
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?
+1). java.util.HashSet
+2). java.util.Vector
+3). java.util.ArrayList
+4). java.util.List
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. Which of the given method must be overridden by a class,after implementing Comapartor?
+1). int compare(Object obj);
+2). int compareTo(Object obj);
+3). int compareTo(Object obj1,Object obj2);
+4). int compare(Object obj1,Object obj2);
+Solution :
+option [4] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. class DemoCmp //line 1
+{
+int number;
+public DemoCmp(int num)
+{
+number=num;
+}
+//line 2
+}
+public class CreateDemo 
+{
+public static void main(String []args){
+TreeSet<DemoCmp>set = new TreeSet<DemoCmp>();
+set.add(new Demo(8));
+set.add(new Demo(2));
+set.add(new Demo(3));
+}}
+Which code need to be inserted at line 1 and line 2
+for successful execution of above code?  
+1). //line 1
+class DemoCmp implements Comparable
+
+//line 2
+public int compareTo(Object obj)
+{
+return number-obj.number;
+}
+2). //line 1
+class DemoCmp implements Comparator
+
+//line 2
+public int compare(Object obj1,Object obj2)
+{
+return obj1.number-obj2.number;
+}
+3). //line 1
+class DemoCmp implements Comparable
+
+//line 2
+public int compare(Object obj1,Object obj2)
+{
+return obj1.number-obj2.number;
+}
+4). //line 1
+class DemoCmp implements Comparator
+
+//line 2
+public int compareTo(Object obj)
+{
+return number-obj1.number;
+}
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. A programmer has an algorithm that requires a java.util.List that provides an efficient 
+implementation of add(0,object), but does NOT need to support quick random access. 
+What supports these requirements?
+1). ArrayList
+2). Queue
+3). Linear List
+4). LinkedList
+Solution :
+option [4] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. A __________ is used to walk through a collection and can remove elements from the collection during the iteration.
+1). Enumeration
+2). Iterator
+3). ArrayList
+4). Vector
+Solution :
+option [2] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. class GenericsDemo<T>
+{
+ T data;
+ public GenericsDemo(T data)
+ {
+  this.data = data;
+ }
+}Which of the given statement is true about above code?
+1). GenericsDemo object can be created by passing any type of parameter
+2). GenericsDemo object can be created as given below
+GenericsDemo<String>obj = new GenericsDemo<String>();
+3). GenericsDemo object can be created as given below
+GenericsDemo<String>obj = new GenericsDemo<String>("xyz");
+4). Can not create object of given class
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. class CreateObject
+{
+public static void main(String []args)
+{
+Set set = new TreeSet();
+set.add("Priya");
+set.add("Ritu");
+set.add(100);
+}
+}What will happen after the execution of above code?
+1). All elements will be successfully added to set
+2). last element 100 will not be added to set
+3). ClassCastException
+4). IlleagalStateException
+Solution :
+option [3] is correct
+Attempted :
+option [1] is attempted
+
+
+
+Q. import java.util.*;
+class Test {
+public static void main(String[] args) {
+// insert code here
+obj.add("one");
+obj.add("two");
+obj.add("TWO");
+System.out.println(x.poll());
+}
+}
+
+Which, inserted at // insert code here, will compile?          
+1). List<String> obj = new LinkedList<String>();
+2). TreeSet<String> obj = new TreeSet<String>();
+3). HashSet<String> obj = new HashSet<String>();
+4). Queue<String> obj= new PriorityQueue<String>();
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Q. Which of the given annotation is used to do initialization of some task before each test run ?
+1). @Test
+2). @After
+3). @BeforeClass
+4). @Before
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. Which of the following classes in java.io are abstract classes?
+1). Reader
+2). Writer
+3). InputStream
+4). File
+Solution :
+option [1,2,3] are correct
+Attempted :
+option [1,2,3] are attempted
+
+
+Q. Which of the following I/O classes helps you in persistence storage of Objects? 
+1). ObjectOutputStream
+2). DataOutputStream
+3). FileWriter
+4). ObjectWriter
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. Which of the following correctly illustrate how an InputStreamReader can be created?           
+1). new InputStreamReader(new FileInputStream("data")); 
+2). new InputStreamReader(new FileReader("data")); 
+3). new InputStreamReader("data"); 
+4). new InputStreamReader(System.in);
+Solution :
+option [1,4] are correct
+Attempted :
+option [2,4] are attempted
+
+
+Q. JUnit is used for __________  in Java Application.
+1). Integration Testing
+2). Code Review
+3). Unit Testing
+4). Black Box Testing
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. Which of the following piece of code needs to be inserted so that the program prints 
+the contents of filereader.java?         
+
+import java.io.*;
+
+class FileReader
+{
+    public static void main(String args[]) throws Exception
+    {
+        //Insert code here
+
+        char data[] = new char[1024];
+        int charsRead = fileReader.read(data);
+        System.out.println(new String(data, 0 , charsRead));
+
+        fileReader.close();
+    }
+}
+1). FileInputStream fileReader=new FileInputStream("C:\\myjavacourse\\src\\filereader.java");
+2). FileReader fileReader = new FileReader("C:\\myjavacourse\\src\\filereader.java");
+3). Both a and b can be used
+4). None of the above is correct
+Solution :
+option [2] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. Which of the following methods of the File class will delete a directory or file?
+1). The file class does not allow you to delete a file or directory
+2). remove()
+3). delete()
+4). deleteFile()
+Solution :
+option [3] is correct
+Attempted :
+option [4] is attempted
+
+Q. Which of the following methods of the File class will delete a directory or file?
+1). The file class does not allow you to delete a file or directory
+2). remove()
+3). delete()
+4). deleteFile()
+Solution :
+option [3] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. Which of the given option is correct for adding exception to the test method given below?
+Public void divideByZeroTest(){
+calobj.divide(15,0);
+} Note : calobj is an object of Calculate class which contains divide(int x,int y) method.
+1). @Test(expected = ArithmeticException.class)
+2). @Test( ArithmeticException.class)
+3). @Before( ArithmeticException.class)
+4). @Before(expected = ArithmeticException.class)
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. Consider the following code snippet:
+
+public class Calculator {
+        public long add (long number1, long number2){
+   return number1 + number2; 
+}
+}
+
+public class CalculatorTest {
+     @Test
+ public void add() throws Exception {
+  Calculator cal=new Calculator();
+  assertEquals(4, calculator.add(1,3));
+}
+}
+
+The above code returns an error. What change needs to be done in order to run 
+the test successfully.         
+1). There is no error in the code above
+2). The TestCase class has not been extended hence it not recognized as a Test class
+3). Change the assertEquals method to assertTrue
+4). The assertEqauls method should be written as assertEquals ((long)4,calculator.add(1,3));
+Solution :
+option [4] is correct
+Attempted :
+option [3] is attempted
+
+
+
+Q. class Demo{
+public static void main(String []args){
+Path javaHome = Paths.get("C:/Program Files/Java/jdk1.8.0_25");
+  System.out.println(javaHome.getNameCount());}
+}What will be the output of above code?
+1). 1
+2). 2
+3). 3
+4). 4
+Solution :
+option [3] is correct
+Attempted :
+option [2] is attempted
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q. Which of the following are the interfaces in JDBC API?
+1). DriverManager
+2). PreparedStatement
+3). Connection
+4). ResultSet
+5). Statement
+Solution :
+option [2,3,4,5] are correct
+Attempted :
+option [2,3,4,5] are attempted
+
+Q. Which of the following are pure java drivers ?
+1). Type 1 – JDBC-ODBC Bridge 
+2). Type 2 – Java Native API
+3). Type 3 – Java to Network Protocol
+4). Type 4 – Java to Database Protocol
+Solution :
+option [3,4] are correct
+Attempted :
+option [4] is attempted
+
+
+
+Q. ResultSet rs = stmt.executQuery("SELECT name, rank, serialNo FROM          employee");
+Which of the following will get the value of 'name' from the  above ResultSet rs?
+1). rs.getString(0)
+2). rs.getString(1)
+3). rs.getString("name")
+4). None of the above
+Solution :
+option [2,3] are correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. The scenario where you want to take data from user each time differently, this data 
+you want to pass as an argument to the SQL query. Which of the following statement 
+you will use to execute such query 
+1). Statement
+2). PreparedStatement
+3). CallableStatement
+4). All the above
+Solution :
+option [2] is correct
+Attempted :
+option [4] is attempted
+
+
+
+Q. Which of the given method of Properties class is used to read, key and value pair from input binary stream?
+1). load(InputStream stream)
+2). load(Reader reader)
+3). getProperty(String str)
+4). getProperty(String str,String default);
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+
+Q. Which of the following methods is best suitable for executing a DML statement? 
+1). executeQuery()
+2). executeUpdate()
+3). execute()
+4). getResultSet()
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. Which of the following methods is best suitable for executing a DML statement? 
+1). executeQuery()
+2). executeUpdate()
+3). execute()
+4). getResultSet()
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. Pick up the valid statement to execute the following sql query
+PreparedStatement pstmt = con.prepareStatement("insert into student values(?,?));
+pstmt.setString(1,"Asha");
+pstmt.setString(2,"Basha");
+1). ResutlSet rs = pstmt.executeQuery();
+2). Pstmt.executeQuery();
+3). ResultSet rs = pstmt.executeUpdate();
+4). None of the above
+Solution :
+option [4] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. What is true about Connection Pooling?          
+1). It increase the performance system
+2). It promotes reusability
+3). Connection pool implementation not disconnect the link with the database even 
+     though client close the connection
+4). All the above
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. Which of the following methods of ResultSet interface helps in retrieving the type 
+of each column in the resultSet?        
+1). getData()
+2). getMetaData()
+3). getType()
+4). getColumnType()
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. Which of the following code snippet is most appropriate to roll back the transaction 
+when an error occurs in the transaction?                                             
+1). conn.setAutoCommit(false);
+              // perform transactions
+           conn.commit();
+           con.setAutoCommit(true);
+      conn .rollback() ;
+2). try {
+           conn.setAutoCommit(false);
+              // perform transactions
+           conn.commit();
+           con.setAutoCommit(true);
+      } catch (SQLException e) {
+     conn .rollback() ;
+    }
+3). try {
+           conn.setAutoCommit(true);
+              // perform transactions
+           conn.commit();
+           con.setAutoCommit(false);
+      } catch (SQLException e) {
+     conn .rollback() ;
+    }
+4). Transaction cannot be rolled back
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q. Which of the given statement is true about org.junit.runners.Suite class?
+1). It runs group of test cases
+2). It specifies runner class to run the annotated class
+3). both 0 and 1
+4). none of the above
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. @RunWith(Suite.class) 
+@Suite.SuiteClasses({ TestPerson.class, TestPerson2.class,TestPersonFixture.class}) 
+public class TestPersonSuite {
+
+ @BeforeClass
+ public static void setUpBeforeClass() throws Exception {
+  System.out.println("Now running the Test Suite");
+ }
+ @AfterClass
+ public static void tearDownAfterClass() throws Exception {
+  System.out.println("The Test Suite is completed");
+ }
+
+}What is true about above code?
+1). It will run three test classes in a group
+2). @BeforeClass causes  the method to be run once before any of the test methods in the class.
+3). Annotating a public static void method with @AfterClass causes that method to be run after all the tests in the class have been run.
+4). @BeforeClass method will run only once at before testing starts. 
+Solution :
+option [1,2,3] are correct
+Attempted :
+option [2,3,4] are attempted
+
+
+
+Q. Which of the below annotation is used to test with different parameters?
+1). @Parameterized.parameter
+2). @RunWith(Parameterized.class)
+3). @Test(Parameterized.class)
+4). @Test.parameter
+Solution :
+option [1,2] are correct
+Attempted :
+option [1,2,3] are attempted
+
+
+Q. Which of the given options are mock frameworks?
+1). DynaMock
+2). Jmock
+3). EasyMock
+4). StaticMock
+Solution :
+option [1,2,3] are correct
+Attempted :
+option [2,3,4] are attempted
+
+
+Q. Which of the given is the correct implementation of Test suites?
+1). import org.junit.runner.RunWith; 
+import org.junit.runners.Suite; 
+@RunWith 
+@Suite.SuiteClasses({ TestCalAdd.class, TestCalSubtract.class, 
+TestCalMultiply.class, TestCalDivide.class }) 
+public class CalSuite { 
+
+} 
+2). import org.junit.runner.RunWith; 
+import org.junit.runners.Suite; 
+@RunWith(Suite.class) 
+@Suite.SuiteClasses({ TestCalAdd.class, TestCalSubtract.class, 
+TestCalMultiply.class, TestCalDivide.class }) 
+public class CalSuite { 
+
+} 
+3). import org.junit.runner.RunWith; 
+import org.junit.runners.Suite; 
+@Run(Suite.class) 
+@Suite.SuiteClasses({ TestCalAdd.class, TestCalSubtract.class, 
+TestCalMultiply.class, TestCalDivide.class }) 
+public class CalSuite { 
+// the class remains completely empty, 
+// being used only as a holder for the above annotations 
+} 
+4). import org.junit.runner.RunWith; 
+import org.junit.runners.Suite; 
+
+@Suite.SuiteClasses({ TestCalAdd.class, TestCalSubtract.class, 
+TestCalMultiply.class, TestCalDivide.class }) 
+public class CalSuite { 
+// the class remains completely empty, 
+// being used only as a holder for the above annotations 
+} 
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. Rima wants to validate user's credential before showing the account details back to user, in online banking application, in which of the given layer she can validate the user's credential? 
+1). Presentation Layer
+2). Business Layer
+3). DataAccessLayer
+4). ServiceLayer
+Solution :
+option [2] is correct
+Attempted :
+option [4] is attempted
+
+Q. Choose the correct statements about parameterized test.
+1). It allows to run the same test with different parameters
+2). It can be specified as given below
+@RunWith(Parameterized.class)
+3). To use it, we need to add static method which returns collection of data 
+4). It can be done with @RunWith(Suite.class)
+Solution :
+option [1,2,3] are correct
+Attempted :
+option [2,3,4] are attempted
+
+Q. Which of the given method is used to create EasyMock?
+1). EasyMock.createMock();
+2). EasyMock.createMock(Classname.class);
+3). EasyMock mock = new EasyMock();
+4). EasyMock mock = new EasyMock(Classname.class);
+Solution :
+option [2] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. Which of the given statement is true about DTO?
+1). It is used to encapsulate business data
+2). It abstracts the logic to access underlying data store
+3). It is concerned about retrieval,management,processing of application data
+4). It is defined to accept user inputs
+Solution :
+option [1] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. Which of the given statements represents business layer in layered architecture?
+1). Layer in which business methods are implemented
+2). Business layer implementation is hidden from user only interface is given to user
+3). Business layer implementation is accessible to user
+4). Business layer contains implementation for accessing and getting connected with database.
+Solution :
+option [1,2] are correct
+Attempted :
+option [1,2,4] are attempted
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q. Select the appropriate ways of creating Thread.
+1). Extending Thread class
+2). Implementing Runnable interface
+3). Both of the above
+4). Only by Extending Thread class
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. Log4j can be configured with the help of?
+1). XML files
+2). Properties file
+3). Both a and b is true
+4). Log4j cannot be configured with external files
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. Which of the Appender should be used to send LoggingEvent objects to a remote 
+a log server?         
+1). SysLogAppender
+2). ConsoleAppender
+3). Telnet Appender
+4). SocketAppender
+Solution :
+option [4] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. Arrange the priorities in ascending order?
+A.INFO B.ERROR c.DEBUG d.FATAL e.WARN
+1). c,a,e,b,d
+2). a,b,c,d,e
+3). b,c,d,e,a
+4). c,b,d,e,a
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. What will be the output of the following code?           
+
+myLogger.setLevel(Level.INFO);  
+myAppender = new ConsoleAppender(new SimpleLayout());   
+myLogger.info("Logged since INFO=INFO");
+myLogger.debug("Logged, since DEBUG >INFO");
+1). Logged since INFO=INFO
+     Logged, since DEBUG >INFO
+2). Logged, since DEBUG >INFO
+3). Logged since INFO=INFO
+4). No output
+Solution :
+option [4] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. Which of the following are methods of Thread class?
+1). isAlive()
+2). notify()
+3). wait()
+4). join()
+Solution :
+option [1,4] are correct
+Attempted :
+option [1,2,3] are attempted
+
+
+Q. Which method must be defined by a class implementing the java.lang.Runnable interface?
+1). void run()
+2). public void run()
+3). public void start()
+4). void run(int priority)
+Solution :
+option [2] is correct
+Attempted :
+option [4] is attempted
+
+
+Q. wait(),notify() and notifyAll() methods of ___________________ class/interface 
+1). Object
+2). Thread
+3). Runnable 
+4). Class
+Solution :
+option [2] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. Which of the given class is used to read property file?
+1). Logger
+2). Appender
+3). System
+4). PropertyConfigurator
+Solution :
+option [4] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. Which of the following method is responsible to start a Thread?
+1). start()
+2). run()
+3). init()
+4). go()
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q. String []strng = new String[]{"abc","xyz","abcxyz"};
+Stream<String>stream = Arrays.stream(strng);
+System.out.println(stream.limit(1).findAny());
+What will be the output of above code?
+1). abc
+2). xyz
+3). Optional[abc]
+4). Optional[xyz]
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+Q. Which of the given syntax is correct to display elements of an array given below using streams?
+String[]strng = new String[]{"IGATE","GLOBAL","SOLUTION"};
+1). Stream<String>stream = Arrays.stream(strng);
+stream.forEach((str)->{
+System.out.println(str);});
+2). Stream<String>stream = Arrays.stream(strng);
+stream.forEach((str)->
+System.out.println(str););
+3). Stream<String>stream = Arrays.getStream(strng);
+stream.forEach((str)->
+System.out.println(str););
+4). Stream<String>stream = Arrays.getStream(strng);
+stream.forEach((str)->{
+System.out.println(str);});
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+
+
+Q. Which of the given are characteristics of Stream API?
+1). Designed for lamdas
+2). Can easily be output as an array or list
+3). Support indexed access
+4). bounded
+Solution :
+option [1,2] are correct
+Attempted :
+option [2,3,4] are attempted
+
+
+Q. BiFunction<Integer,Integer,Integer>max = (x,y)->(x>y)?x:y;
+  System.out.println(max.apply(5, 52));
+Which of the given statements are true about above code?
+1). It generate the output as 50
+2). Compilation error, as apply need to be called with 3 arguments
+3). It will execute successfully if below change is done
+BiFunction<Integer,Integer>max = (x,y)->(x>y)?x:y;
+4). Same expression can also be written as
+BinaryOperator<Integer> maxFunction = (x,y) -> x>y?x:y;
+System.out.println(max.apply(5,52));
+Solution :
+option [1,4] are correct
+Attempted :
+option [1,2,4] are attempted
+
+
+Q. String []strng = new String[]{"abc","xyz","abcxyz"};
+Stream<String>stream = Arrays.stream(strng);
+System.out.println(stream.skip(1).findFirst());
+What will be the output of above code?
+1). abc
+2). abcxyz
+3). xyz
+4). Optional[xyz]
+Solution :
+option [4] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. @FunctionalInterface StringI
+{
+String getString();
+}Which of the given syntax is correct to call this getString() method?
+1). ("Welcome to India")->getString();
+2). StringI ref =()->"Welcome to India";
+  System.out.println(ref.getString());
+3). String ref =("Welcome to India")->getString();
+  System.out.println(ref);
+4). none of the above
+Solution :
+option [2] is correct
+Attempted :
+option [3] is attempted
+
+
+
+Q. Which of the given statements are true about functional interface?
+1). Use of @FunctionalInterface is optional
+2). It has exactly one abstract method
+3). It can also have static and default method
+4). It may contain more than one abstract method
+Solution :
+option [1,2,3] are correct
+Attempted :
+option [1,2,3] are attempted
+
+
+Q. Which of the given options are built-in functional interfaces?
+1). supplier
+2). consumer
+3). predicate
+4). producer
+Solution :
+option [1,2,3] are correct
+Attempted :
+option [1,2,3] are attempted
+
+
+
+Q. String []strng = new String[]{"abc","xyz","abcxyz"};
+Select the correct option to print only the string elements that contains "xyz"?
+1). Stream<String>stream = Arrays.stream(strng);
+  stream.filter(str->str.contains("xyz")).forEach(strn->System.out.println(strn));
+2). Stream<String>stream = Arrays.stream(strng);
+  stream.distinct(str->str.contains("xyz")).forEach(strn->System.out.println(strn));
+3). System.out.println(stream.allMatch(str1->str1.contains("xyz")));
+4). System.out.println(stream.anyMatch(str1->str1.contains("xyz")));
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. @FunctionalInterface
+interface Power
+{
+ public int calculatePower(int base,int index);
+}
+public class CalculatePowerDemo{
+
+ public static void main(String[] args) {
+int x=4,y=2;
+}
+}How to call calculatePower() in CalculatePowerDemo class?
+1). Class CalculatePowerDemo need to implement Power interface and has to override calculatePower() to call it
+2). It can be implemented as given below
+Power pwr = (base,index)->{for(int i=0;i<index;i++)
+  {
+    base = base*index;
+  }
+  return base;};
+  result= pwr.calculatePower(x, y);
+  System.out.println(result);
+3). It can be implemented as given below
+Power pwr = (base,index)->{for(int i=0;i<index;i++)
+  {
+    base = base*index;
+  }
+  };
+  result= pwr.calculatePower(x, y);
+  System.out.println(result);
+4). It can be implemented as given below
+System.out.println((base,index)->{for(int i=0;i<index;i++)
+  {
+    base = base*index;
+  }
+  return base;};)
+Solution :
+option [2] is correct
+Attempted :
+option [3] is attempted
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
